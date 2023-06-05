@@ -3,7 +3,7 @@ import socket
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 host = socket.gethostname()
-port = 2205
+port = 8008
 
 serversocket.bind((host, port))
 print(serversocket.getsockname())
