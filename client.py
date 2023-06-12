@@ -11,11 +11,19 @@ print(msg.decode('ascii'))
 s.close()
 
 
-def odeslat_data():
+def odeslat_data_enter(event):
+    text_field.config(state="normal")
     text_send = entry_field.get()
+    text_field.insert(END, text_send + '\n')
     entry_field.delete(0, END)
-    s.send(text_send.encode())
-    print(text_send)
+    text_field.config(state="disabled")
+
+def odeslat_data():
+    text_field.config(state="normal")
+    text_send = entry_field.get()
+    text_field.insert(END, text_send + '\n')
+    entry_field.delete(0, END)
+    text_field.config(state="disabled")
 
 
 
@@ -25,6 +33,7 @@ def odeslat_data():
 root = Tk()
 root.title("chatter")
 root.geometry('800x1000')
+root.bind('<Return>', odeslat_data_enter)
 
 num_rows = 2
 num_columns = 6
@@ -41,10 +50,10 @@ text_field = Text(root, state="disabled", height=55, width=80, background="light
 text_field.grid(row=1, column=0, columnspan=6, sticky="nswe")
 
 entry_field = Entry(root, width=80 , background="white", foreground="black")
-entry_field.grid(row=2, column=0, columnspan=4)
+entry_field.grid(row=2, column=0, columnspan=4, sticky="nswe")
 
 send_button = Button(root, text="Send", command=odeslat_data)
-send_button.grid(row=2, column=4, columnspan=2)
+send_button.grid(row=2, column=4, columnspan=2, sticky="nswe")
 
 
 root.mainloop()
