@@ -1,59 +1,48 @@
 import socket
-from tkinter import *
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+import threading
+import tkinter as tk
 
 host = socket.gethostname()
+def poslat_zpravu():
+    message = entry_field.get()
+    client_socket.sendall(message.encode('utf-8'))
+    entry_field.delete(0, tk.END)
+
+def prijmout_zpravu():
+    while True:
+        data = client_socket.recv(1024)
+        if not data:
+            break
+        text_field.insert(tk.END, data.decode('utf-8') + '\n')
+
+# Připojení k serveru
+server_address = host
 port = 8008
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect((server_address, port))
 
-s.connect((host, port))
-msg = s.recv(1024)
-print(msg.decode('ascii'))
-s.close()
+# Vytvoření GUI s využitím grid
+root = tk.Tk()
+root.title("Chattovací aplikace")
 
+# Rozvržení grid
+root.grid_rowconfigure(0, weight=1)
+root.grid_columnconfigure(0, weight=1)
 
-def odeslat_data_enter(event):
-    text_field.config(state="normal")
-    text_send = entry_field.get()
-    text_field.insert(END, text_send + '\n')
-    entry_field.delete(0, END)
-    text_field.config(state="disabled")
+text_field = tk.Text(root, height=30, width=80, background="light grey", borderwidth=1, relief="solid", foreground="black")
+text_field.grid(row=0, column=0, sticky="nsew")
 
-def odeslat_data():
-    text_field.config(state="normal")
-    text_send = entry_field.get()
-    text_field.insert(END, text_send + '\n')
-    entry_field.delete(0, END)
-    text_field.config(state="disabled")
+entry_field = tk.Entry(root, width=60, background="white", foreground="black")
+entry_field.grid(row=1, column=0, sticky="we")
 
+send_button = tk.Button(root, text="Send", command=poslat_zpravu)
+send_button.grid(row=1, column=1, sticky="we")
 
-
-
-#vytvoření okna
-
-root = Tk()
-root.title("chatter")
-root.geometry('800x1000')
-root.bind('<Return>', odeslat_data_enter)
-
-num_rows = 2
-num_columns = 6
-
-for i in range(num_rows):
-    root.rowconfigure(i, weight=1)
-for k in range(num_columns):
-    root.columnconfigure(k, weight=1)
-
-name_of_person = Label(root, text="Hello im under da watah", font=('Helvetica', 25))
-name_of_person.grid(row=0, column=0, columnspan=6, sticky="nswe")
-
-text_field = Text(root, state="disabled", height=55, width=80, background="light grey", borderwidth=1, relief="solid", foreground="black")
-text_field.grid(row=1, column=0, columnspan=6, sticky="nswe")
-
-entry_field = Entry(root, width=80 , background="white", foreground="black")
-entry_field.grid(row=2, column=0, columnspan=4, sticky="nswe")
-
-send_button = Button(root, text="Send", command=odeslat_data)
-send_button.grid(row=2, column=4, columnspan=2, sticky="nswe")
-
+# Spuštění příjmu zpráv ve vlákně
+receive_thread = threading.Thread(target=prijmout_zpravu)
+receive_thread.start()
 
 root.mainloop()
+
+# Ukončení spojení
+client_socket.close()
