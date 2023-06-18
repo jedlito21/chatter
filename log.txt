@@ -1,0 +1,27 @@
+Zpr·va od klienta ('192.168.50.32', 54811): ASGASGAFG
+2023-06-18 22:48:42,777 - INFO - Nov˝ klient p¯ipojen: ('192.168.50.32', 54900)
+2023-06-18 22:48:50,017 - INFO - Zpr·va od klienta ('192.168.50.32', 54900): Ahoj
+Zpr·va od klienta ('192.168.50.32', 54900): Ahoj
+2023-06-18 22:49:08,969 - INFO - Zpr·va od klienta ('192.168.50.32', 54900): M·m r·d jahodovÈ frappÈ
+Zpr·va od klienta ('192.168.50.32', 54900): M·m r·d jahodovÈ frappÈ
+2023-06-18 22:49:10,530 - INFO - Klient ('192.168.50.32', 54900) odpojen.
+2023-06-18 22:50:14,623 - INFO - Nov√Ω klient p≈ôipojen: ('192.168.50.32', 54942)
+2023-06-18 22:50:30,485 - INFO - Nov√Ω klient p≈ôipojen: ('192.168.50.32', 54960)
+2023-06-18 22:50:43,161 - INFO - Zpr√°va od klienta ('192.168.50.32', 54942): Ahoj
+Zpr·va od klienta ('192.168.50.32', 54942): Ahoj
+2023-06-18 22:50:47,705 - INFO - Zpr√°va od klienta ('192.168.50.32', 54960): Zdar
+Zpr·va od klienta ('192.168.50.32', 54960): Zdar
+2023-06-18 22:50:56,147 - INFO - Zpr√°va od klienta ('192.168.50.32', 54942): Jdu sp√°t 
+Zpr·va od klienta ('192.168.50.32', 54942): Jdu sp·t 
+2023-06-18 22:51:08,001 - INFO - Zpr√°va od klienta ('192.168.50.32', 54960): Tak jo, mƒõj se
+Zpr·va od klienta ('192.168.50.32', 54960): Tak jo, mÏj se
+2023-06-18 22:51:09,689 - INFO - Klient ('192.168.50.32', 54960) odpojen.
+2023-06-18 22:51:10,564 - INFO - Klient ('192.168.50.32', 54942) odpojen.
+2023-06-18 22:56:15,563 - INFO - Nov√Ω klient p≈ôipojen: ('192.168.50.32', 55129)
+2023-06-18 22:56:29,407 - INFO - Nov√Ω klient p≈ôipojen: ('192.168.50.32', 55132)
+2023-06-18 22:56:54,233 - INFO - Zpr√°va od klienta ('192.168.50.32', 55132): hello im unda da water please help me
+Zpr·va od klienta ('192.168.50.32', 55132): hello im unda da water please help me
+2023-06-18 22:57:12,489 - INFO - Zpr√°va od klienta ('192.168.50.32', 55129): Ohhh you teasing me naughty naugthy
+Zpr·va od klienta ('192.168.50.32', 55129): Ohhh you teasing me naughty naugthy
+2023-06-18 22:57:13,902 - INFO - Klient ('192.168.50.32', 55132) odpojen.
+2023-06-18 22:57:14,888 - INFO - Klient ('192.168.50.32', 55129) odpojen.
